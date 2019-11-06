@@ -1,7 +1,7 @@
 
 const SS_VOICE_NUM = 4;
 const SAMPLER_INIT_VOL = 0.5;
-let voices = new Array(SS_VOICE_NUM);
+let smpl_voices = new Array(SS_VOICE_NUM);
 
 //FIleNames
 let files = [
@@ -23,11 +23,11 @@ let files = [
 
 function samplerPreload(){
 
-  //Write code for init each voices
-  for(let i=0; i<voices.length; i++){
+  //Write code for init each smpl_voices
+  for(let i=0; i<smpl_voices.length; i++){
     soundFormats('mp3', 'ogg');
-    voices[i] = loadSound( files[i] );
-    // voices[i] = loadSound('assets/test.mp3');
+    smpl_voices[i] = loadSound( files[i] );
+    // smpl_voices[i] = loadSound('assets/test.mp3');
   }
 
 }
@@ -36,9 +36,9 @@ function samplerPreload(){
 
 function samplerSetup(){
 
-  //Write code for init vols of each voices
-  for(let i=0; i<voices.length; i++){
-    voices[i].setVolume(SAMPLER_INIT_VOL);
+  //Write code for init vols of each smpl_voices
+  for(let i=0; i<smpl_voices.length; i++){
+    smpl_voices[i].setVolume(SAMPLER_INIT_VOL);
   }  
   
 }
@@ -48,7 +48,7 @@ function samplerSetup(){
 function samplerSetVol(voice_id, fval){
 
   if(sampler_voice_check(voice_id) == 1)return;
-  voices[voice_id].setVolume(fval);
+  smpl_voices[voice_id].setVolume(fval);
 
 }
 
@@ -57,14 +57,14 @@ function samplerSetVol(voice_id, fval){
 function samplerPlay(voice_id){
   if(sampler_voice_check(voice_id) == 1)return;
   print(voice_id);
-  voices[voice_id].play();
+  smpl_voices[voice_id].play();
 
 }
 
 
 function samplerStop(voice_id){
   if(sampler_voice_check(voice_id)==1)return;
-  voices[voice_id].stop();
+  smpl_voices[voice_id].stop();
 
 }
 

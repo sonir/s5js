@@ -1,15 +1,15 @@
 
 const SS_VOICE_NUM = 8;
-let voices = new Array(SS_VOICE_NUM);
+let ss_voices = new Array(SS_VOICE_NUM);
 let freqs = new Array(SS_VOICE_NUM);
 let qs = new Array(SS_VOICE_NUM);
 
 function subsyn_setup(){
 
-  //Write code for init each voices
-  for(let i=0; i<voices.length; i++){
+  //Write code for init each ss_voices
+  for(let i=0; i<ss_voices.length; i++){
 
-    voices[i] = new SubVoice(440, 150, 0.75);
+    ss_voices[i] = new SubVoice(440, 150, 0.75);
     freqs[i] = 440*(i+1);
     qs[i] = 75;
 
@@ -21,14 +21,14 @@ function subsyn_setup(){
 
 function subsyn_start(voice_id){
   if(subsyn_voice_check(voice_id) == 1)return;
-  voices[voice_id].start(freqs[voice_id] , qs[voice_id]);
+  ss_voices[voice_id].start(freqs[voice_id] , qs[voice_id]);
 
 }
 
 
 function subsyn_stop(voice_id){
   if(subsyn_voice_check(voice_id)==1)return;
-  voices[voice_id].stop();
+  ss_voices[voice_id].stop();
 
 }
 
