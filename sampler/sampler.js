@@ -1,7 +1,7 @@
 
-const SS_VOICE_NUM = 4;
+const SMPL_VOICE_NUM = 4;
 const SAMPLER_INIT_VOL = 0.5;
-let smpl_voices = new Array(SS_VOICE_NUM);
+let smpl_voices = new Array(SMPL_VOICE_NUM);
 
 //FIleNames
 let files = [
@@ -71,7 +71,7 @@ function samplerStop(voice_id){
 
 function sampler_voice_check(voice_id){
 
-  if(voice_id < SS_VOICE_NUM){
+  if(voice_id < SMPL_VOICE_NUM){
 
     return 0;
 
